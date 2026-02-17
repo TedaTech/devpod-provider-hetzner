@@ -224,7 +224,7 @@ func (h *Hetzner) Create(ctx context.Context, req *hcloud.ServerCreateOpts, disk
 
 	log.Default.Info("Server creation triggered")
 
-	if err := hga.NewWaiter(h.client).Wait(ctx, server.Action, server.NextActions...); err != nil {
+	if err := hga.NewWaiter(h.client, hga.WithTimeout(5*time.Minute)).Wait(ctx, server.Action, server.NextActions...); err != nil {
 		log.Default.Errorf("Error in server creation action: %s", err)
 		return err
 	}
