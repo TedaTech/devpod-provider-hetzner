@@ -121,7 +121,7 @@ func BuildConfig(
 	defaultMachineType string,
 	machineTypes types.OptionEnumArray,
 ) provider.ProviderConfig {
-	releaseURLBase := fmt.Sprintf("https://github.com/mrsimonemms/devpod-provider-hetzner/releases/download/%s", version)
+	releaseURLBase := fmt.Sprintf("https://github.com/TedaTech/devpod-provider-hetzner/releases/download/%s", version)
 
 	return provider.ProviderConfig{
 		Name:        "hetzner",
@@ -174,7 +174,7 @@ fi`,
 				Local:       true,
 			},
 			"DISK_IMAGE": {
-				Description: "The disk image to use.",
+				Description: "The disk image name or snapshot ID to use.",
 				Default:     "docker-ce",
 				Local:       true,
 			},

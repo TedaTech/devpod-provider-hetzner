@@ -143,7 +143,7 @@ func (h *Hetzner) BuildServerOptions(
 		// Machines starting "cax" are ARM64
 		arch = hcloud.ArchitectureARM
 	}
-	image, _, err := h.client.Image.GetByNameAndArchitecture(ctx, opts.DiskImage, arch)
+	image, _, err := h.client.Image.GetForArchitecture(ctx, opts.DiskImage, arch)
 	if err != nil {
 		return nil, nil, nil, err
 	}
